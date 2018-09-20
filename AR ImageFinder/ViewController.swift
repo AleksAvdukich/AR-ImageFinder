@@ -36,6 +36,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
 
+        //чтобы определял наши картники предаем их в качетсве параметра
+        let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil)!
+        
+        configuration.detectionImages = referenceImages
+        
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }
